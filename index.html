@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
@@ -6,9 +6,6 @@
 <title>모두의 상담사 — 심리상담·심리검사 전문가 연결 플랫폼</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  /* =============================================
-     전체 기본 설정
-  ============================================= */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -39,9 +36,6 @@
     line-height: 1.7;
   }
 
-  /* =============================================
-     네비게이션
-  ============================================= */
   nav {
     background: rgba(253,248,244,0.96);
     backdrop-filter: blur(8px);
@@ -93,9 +87,6 @@
   }
   .nav-cta:hover { background: var(--warm-dark) !important; }
 
-  /* =============================================
-     히어로
-  ============================================= */
   .hero {
     background: var(--warm-bg2);
     padding: 80px 48px 64px;
@@ -144,7 +135,6 @@
     margin: 0 auto 36px;
   }
 
-  /* 검색창 */
   .search-wrap {
     max-width: 520px;
     margin: 0 auto 24px;
@@ -182,7 +172,6 @@
   }
   .search-btn:hover { background: var(--warm-dark); }
 
-  /* 빠른 키워드 태그 */
   .quick-tags {
     display: flex;
     gap: 8px;
@@ -206,9 +195,6 @@
     border-color: var(--warm-accent);
   }
 
-  /* =============================================
-     메인 컨텐츠 (탭 + 상담사 목록)
-  ============================================= */
   .main-section {
     padding: 56px 48px;
     max-width: 1100px;
@@ -230,7 +216,6 @@
     color: var(--warm-muted);
   }
 
-  /* 유료/무료 탭 */
   .tab-row {
     display: flex;
     gap: 0;
@@ -282,7 +267,6 @@
     color: var(--warm-muted);
   }
 
-  /* 세부 필터 */
   .filter-row {
     display: flex;
     gap: 8px;
@@ -312,9 +296,6 @@
     border-color: var(--warm-accent);
   }
 
-  /* =============================================
-     상담사 카드 그리드
-  ============================================= */
   .counselor-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -334,7 +315,6 @@
     box-shadow: 0 8px 24px rgba(176,125,101,0.12);
   }
 
-  /* 무료 카드 강조 */
   .c-card.free-card {
     border-color: var(--free-border);
     background: #fff;
@@ -382,7 +362,6 @@
     line-height: 1.5;
   }
 
-  /* 무료/유료 배지 */
   .price-badge {
     display: inline-flex;
     align-items: center;
@@ -473,7 +452,6 @@
     color: #fff;
   }
 
-  /* 무료 안내 배너 */
   .free-info-banner {
     background: var(--free-bg);
     border: 1px solid var(--free-border);
@@ -498,9 +476,6 @@
     font-weight: 500;
   }
 
-  /* =============================================
-     이용 방법 섹션
-  ============================================= */
   .how-section {
     background: var(--warm-bg2);
     border-top: 1px solid var(--warm-border);
@@ -571,9 +546,6 @@
     line-height: 1.7;
   }
 
-  /* =============================================
-     상담사 등록 CTA
-  ============================================= */
   .cta-section {
     padding: 56px 48px;
     max-width: 900px;
@@ -613,16 +585,9 @@
     transition: background 0.2s;
   }
   .cta-box a:hover { background: var(--warm-dark); }
-  .cta-box.trainee a {
-    background: var(--free-color);
-  }
-  .cta-box.trainee a:hover {
-    background: #3d6b52;
-  }
+  .cta-box.trainee a { background: var(--free-color); }
+  .cta-box.trainee a:hover { background: #3d6b52; }
 
-  /* =============================================
-     푸터
-  ============================================= */
   footer {
     background: var(--warm-bg3);
     border-top: 1px solid var(--warm-border);
@@ -661,13 +626,22 @@
   }
   .footer-links a:hover { color: var(--warm-accent); }
 
-  /* =============================================
-     탭 전환 (JS 연동)
-  ============================================= */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
-  /* 반응형 */
+  .empty-state {
+    display: none;
+    margin-top: 12px;
+    padding: 18px;
+    border: 1px dashed var(--warm-border);
+    background: #fff;
+    border-radius: 14px;
+    font-size: 13px;
+    color: var(--warm-muted);
+    text-align: center;
+  }
+  .empty-state.show { display: block; }
+
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
@@ -686,24 +660,16 @@
 </style>
 </head>
 <body>
-
-<!-- =============================================
-     네비게이션
-============================================= -->
 <nav>
   <a href="#" class="logo">모두의 <em>상담사</em></a>
   <ul class="nav-links">
     <li><a href="#counselors">상담사 찾기</a></li>
     <li><a href="#how">이용 방법</a></li>
     <li><a href="#register">상담사 등록</a></li>
-    <!-- ▼ 카카오톡 오픈채팅 링크로 교체하세요 -->
-    <li><a href="https://open.kakao.com/o/예약링크" class="nav-cta" target="_blank">상담 문의</a></li>
+    <li><a href="https://open.kakao.com/o/예약링크" class="nav-cta" target="_blank" rel="noopener">상담 문의</a></li>
   </ul>
 </nav>
 
-<!-- =============================================
-     히어로
-============================================= -->
 <section class="hero">
   <div class="hero-badge">검증된 임상·상담 심리 전문가 연결 플랫폼</div>
   <h1>심리상담, 심리검사 받고 싶은데<br><strong>누구한테 어떤 걸 받지?</strong></h1>
@@ -714,23 +680,20 @@
   </p>
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="불안, 우울, MMPI 검사, 진로 상담... 검색해보세요" />
-    <button class="search-btn" onclick="doSearch()">검색</button>
+    <button class="search-btn" type="button" onclick="doSearch()">검색</button>
   </div>
   <div class="quick-tags">
-    <button class="quick-tag" onclick="setSearch('우울·무기력')">우울·무기력</button>
-    <button class="quick-tag" onclick="setSearch('불안·공황')">불안·공황</button>
-    <button class="quick-tag" onclick="setSearch('관계 갈등')">관계 갈등</button>
-    <button class="quick-tag" onclick="setSearch('트라우마')">트라우마</button>
-    <button class="quick-tag" onclick="setSearch('심리검사')">심리검사</button>
-    <button class="quick-tag" onclick="setSearch('진로·자존감')">진로·자존감</button>
-    <button class="quick-tag" onclick="setSearch('가족·부부')">가족·부부</button>
-    <button class="quick-tag" onclick="setSearch('무료상담')">무료상담</button>
+    <button class="quick-tag" type="button" onclick="setSearch('우울·무기력')">우울·무기력</button>
+    <button class="quick-tag" type="button" onclick="setSearch('불안·공황')">불안·공황</button>
+    <button class="quick-tag" type="button" onclick="setSearch('관계 갈등')">관계 갈등</button>
+    <button class="quick-tag" type="button" onclick="setSearch('트라우마')">트라우마</button>
+    <button class="quick-tag" type="button" onclick="setSearch('심리검사')">심리검사</button>
+    <button class="quick-tag" type="button" onclick="setSearch('진로·자존감')">진로·자존감</button>
+    <button class="quick-tag" type="button" onclick="setSearch('가족·부부')">가족·부부</button>
+    <button class="quick-tag" type="button" onclick="setSearch('무료상담')">무료상담</button>
   </div>
 </section>
 
-<!-- =============================================
-     이용 방법
-============================================= -->
 <section class="how-section" id="how">
   <h2>이용 방법</h2>
   <p>4단계로 쉽게 나만의 상담사를 만나보세요</p>
@@ -758,69 +721,35 @@
   </div>
 </section>
 
-<!-- =============================================
-     상담사 목록
-============================================= -->
 <section class="main-section" id="counselors">
   <div class="section-header">
     <h2>상담사 찾기</h2>
     <p>자격, 경력, 전문 분야를 비교하고 나에게 맞는 상담사를 선택하세요</p>
   </div>
 
-  <!-- 유료/무료 탭 -->
   <div class="tab-row">
-    <button class="tab-btn active" onclick="switchTab('paid', this)">
+    <button class="tab-btn active" type="button" onclick="switchTab('paid', this)">
       유료 상담사
       <span class="tab-badge" id="paid-count">3</span>
     </button>
-    <button class="tab-btn free-tab" onclick="switchTab('free', this)">
+    <button class="tab-btn free-tab" type="button" onclick="switchTab('free', this)">
       무료 상담 (수련생)
       <span class="tab-badge" id="free-count">2</span>
     </button>
   </div>
 
-  <!-- ── 유료 탭 ── -->
   <div class="tab-panel active" id="panel-paid">
     <div class="filter-row">
       <span class="filter-label">전문분야</span>
-      <button class="filter-chip active" onclick="filterCards(this, 'paid', 'all')">전체</button>
-      <button class="filter-chip" onclick="filterCards(this, 'paid', '우울')">우울·불안</button>
-      <button class="filter-chip" onclick="filterCards(this, 'paid', '관계')">관계·가족</button>
-      <button class="filter-chip" onclick="filterCards(this, 'paid', '트라우마')">트라우마</button>
-      <button class="filter-chip" onclick="filterCards(this, 'paid', '심리검사')">심리검사</button>
-      <button class="filter-chip" onclick="filterCards(this, 'paid', '온라인')">온라인 가능</button>
+      <button class="filter-chip active" type="button" onclick="filterCards(this, 'paid', 'all')">전체</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'paid', '우울')">우울·불안</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'paid', '관계')">관계·가족</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'paid', '트라우마')">트라우마</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'paid', '심리검사')">심리검사</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'paid', '온라인')">온라인 가능</button>
     </div>
-<!-- 새 유료 상담사 카드 시작 -->
-<div class="c-card" data-tags="우울 불안 온라인">
-  <div class="c-card-top">
-    <div class="avatar">한</div>
-    <div class="c-meta">
-      <h3>프로이트 심리사</h3>
-      <div class="c-cred">정신건강임상심리사 2급 · 경력 3년<br>서울 / 온라인 가능</div>
-      <span class="price-badge paid">50분 40,000원</span>
-    </div>
-  </div>
-
-  <p class="c-desc">
-    대상관계와 게슈탈트 기반으로 관계 갈등, 우울, 불안, 자아탐색을 다룹니다.
-  </p>
-
-  <div class="s-tag-row">
-    <span class="s-tag">관계갈등</span>
-    <span class="s-tag">우울</span>
-    <span class="s-tag">불안</span>
-    <span class="s-tag">온라인</span>
-  </div>
-
-  <div class="c-card-footer">
-    <div class="c-detail">대면·온라인<br>주말 10:00–19:00</div>
-    <a href="https://open.kakao.com/o/여기에실제링크" class="profile-btn" target="_blank">예약 문의</a>
-  </div>
-</div>
-<!-- 새 유료 상담사 카드 끝 -->
 
     <div class="counselor-grid" id="paid-grid">
-
       <div class="c-card" data-tags="관계 가족 청소년 심리검사 우울 불안 온라인">
         <div class="c-card-top">
           <div class="avatar">한</div>
@@ -840,7 +769,7 @@
         </div>
         <div class="c-card-footer">
           <div class="c-detail">대면·온라인(화상O)<br>주말 10:00–19:00</div>
-          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank">예약 문의</a>
+          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank" rel="noopener">예약 문의</a>
         </div>
       </div>
 
@@ -863,7 +792,7 @@
         </div>
         <div class="c-card-footer">
           <div class="c-detail">대면·온라인(화상O)<br>평일·주말 협의</div>
-          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank">예약 문의</a>
+          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank" rel="noopener">예약 문의</a>
         </div>
       </div>
 
@@ -884,14 +813,13 @@
         </div>
         <div class="c-card-footer">
           <div class="c-detail">온라인(화상O), 대면 협의<br>평일·주말 협의</div>
-          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank">예약 문의</a>
+          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank" rel="noopener">예약 문의</a>
         </div>
       </div>
-
     </div>
+    <div class="empty-state" id="empty-paid">검색 결과에 맞는 유료 상담사가 없습니다.</div>
   </div>
 
-  <!-- ── 무료 탭 ── -->
   <div class="tab-panel" id="panel-free">
     <div class="free-info-banner">
       <div class="icon">🌱</div>
@@ -904,14 +832,13 @@
 
     <div class="filter-row">
       <span class="filter-label">서비스</span>
-      <button class="filter-chip active" onclick="filterCards(this, 'free', 'all')">전체</button>
-      <button class="filter-chip" onclick="filterCards(this, 'free', '무료상담')">무료 상담</button>
-      <button class="filter-chip" onclick="filterCards(this, 'free', '무료검사')">무료 검사</button>
-      <button class="filter-chip" onclick="filterCards(this, 'free', '온라인')">온라인 가능</button>
+      <button class="filter-chip active" type="button" onclick="filterCards(this, 'free', 'all')">전체</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'free', '무료상담')">무료 상담</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'free', '무료검사')">무료 검사</button>
+      <button class="filter-chip" type="button" onclick="filterCards(this, 'free', '온라인')">온라인 가능</button>
     </div>
 
     <div class="counselor-grid" id="free-grid">
-
       <div class="c-card free-card" data-tags="무료상담 무료검사 우울 불안 온라인 심리검사">
         <div class="c-card-top">
           <div class="avatar">차</div>
@@ -928,7 +855,7 @@
         </div>
         <div class="c-card-footer">
           <div class="c-detail">대면·온라인(화상O)<br>월,수,금 10:00–19:00</div>
-          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank">신청 문의</a>
+          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank" rel="noopener">신청 문의</a>
         </div>
       </div>
 
@@ -946,17 +873,14 @@
         <div class="s-tag-row"></div>
         <div class="c-card-footer">
           <div class="c-detail">대면·온라인(화상O)<br>주말 10:00–19:00</div>
-          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank">신청 문의</a>
+          <a href="https://open.kakao.com/o/예약링크" class="profile-btn" target="_blank" rel="noopener">신청 문의</a>
         </div>
       </div>
-
     </div>
+    <div class="empty-state" id="empty-free">검색 결과에 맞는 수련생 상담사가 없습니다.</div>
   </div>
 </section>
 
-<!-- =============================================
-     상담사·수련생 등록 CTA
-============================================= -->
 <section class="cta-section" id="register">
   <div class="cta-box">
     <h3>상담사로 등록하시겠어요?</h3>
@@ -970,16 +894,12 @@
   </div>
 </section>
 
-<!-- =============================================
-     푸터
-============================================= -->
 <footer>
   <div class="footer-inner">
     <div>
       <div class="footer-logo">모두의 <em>상담사</em></div>
       <p>
         심리상담·심리검사 전문가 연결 플랫폼<br>
-        <!-- 아래 정보를 실제 정보로 교체하세요 -->
         이메일: help@모두의상담사.kr &nbsp;|&nbsp; 운영시간: 평일 10:00–18:00<br>
         사업자등록번호: 000-00-00000
       </p>
@@ -988,69 +908,170 @@
       <a href="#">이용약관</a>
       <a href="#">개인정보처리방침</a>
       <a href="#">상담사 등록 안내</a>
-      <!-- 카카오톡 오픈채팅 링크로 교체 -->
-      <a href="https://open.kakao.com/o/예약링크" target="_blank">카카오톡 문의</a>
+      <a href="https://open.kakao.com/o/예약링크" target="_blank" rel="noopener">카카오톡 문의</a>
     </div>
   </div>
 </footer>
 
-<!-- =============================================
-     JavaScript
-============================================= -->
 <script>
-  // ── 탭 전환 ──
   function switchTab(tab, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-' + tab).classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(panel) {
+      panel.classList.remove('active');
+    });
+
+    if (btn) {
+      btn.classList.add('active');
+    }
+
+    var targetPanel = document.getElementById('panel-' + tab);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    }
   }
 
-  // ── 카드 필터 ──
+  function updateEmptyState(panel) {
+    var grid = document.getElementById(panel + '-grid');
+    var empty = document.getElementById('empty-' + panel);
+    if (!grid || !empty) return;
+
+    var visibleCount = 0;
+    grid.querySelectorAll('.c-card').forEach(function(card) {
+      if (card.style.display !== 'none') {
+        visibleCount += 1;
+      }
+    });
+
+    if (visibleCount === 0) {
+      empty.classList.add('show');
+    } else {
+      empty.classList.remove('show');
+    }
+  }
+
+  function resetChips(panel) {
+    var panelEl = document.getElementById('panel-' + panel);
+    if (!panelEl) return;
+
+    panelEl.querySelectorAll('.filter-chip').forEach(function(chip) {
+      chip.classList.remove('active');
+    });
+
+    var firstChip = panelEl.querySelector('.filter-chip');
+    if (firstChip) {
+      firstChip.classList.add('active');
+    }
+  }
+
   function filterCards(btn, panel, keyword) {
     var grid = document.getElementById(panel + '-grid');
+    if (!grid) return;
+
     var chips = btn.closest('.filter-row').querySelectorAll('.filter-chip');
-    chips.forEach(c => c.classList.remove('active'));
+    chips.forEach(function(chip) {
+      chip.classList.remove('active');
+    });
     btn.classList.add('active');
 
     grid.querySelectorAll('.c-card').forEach(function(card) {
+      var tags = (card.getAttribute('data-tags') || '').toLowerCase();
       if (keyword === 'all') {
         card.style.display = '';
       } else {
-        var tags = card.getAttribute('data-tags') || '';
-        card.style.display = tags.includes(keyword) ? '' : 'none';
+        card.style.display = tags.includes(keyword.toLowerCase()) ? '' : 'none';
       }
     });
+
+    updateEmptyState(panel);
   }
 
-  // ── 검색 ──
   function setSearch(text) {
-    document.getElementById('searchInput').value = text;
-    if (text === '무료상담') {
-      var freeBtn = document.querySelector('.free-tab');
-      switchTab('free', freeBtn);
-    }
-    document.getElementById('counselors').scrollIntoView({ behavior: 'smooth' });
+    var input = document.getElementById('searchInput');
+    if (!input) return;
+    input.value = text;
+    doSearch();
+  }
+
+  function searchGrid(panel, q) {
+    var grid = document.getElementById(panel + '-grid');
+    if (!grid) return 0;
+
+    var matched = 0;
+    grid.querySelectorAll('.c-card').forEach(function(card) {
+      var haystack = ((card.innerText || card.textContent || '') + ' ' + (card.getAttribute('data-tags') || '')).toLowerCase();
+      var isMatch = haystack.includes(q);
+      card.style.display = isMatch ? '' : 'none';
+      if (isMatch) matched += 1;
+    });
+
+    updateEmptyState(panel);
+    return matched;
+  }
+
+  function clearSearch() {
+    ['paid', 'free'].forEach(function(panel) {
+      var grid = document.getElementById(panel + '-grid');
+      if (!grid) return;
+
+      grid.querySelectorAll('.c-card').forEach(function(card) {
+        card.style.display = '';
+      });
+
+      resetChips(panel);
+      updateEmptyState(panel);
+    });
+
+    switchTab('paid', document.querySelector('.tab-btn:not(.free-tab)'));
   }
 
   function doSearch() {
-    var q = document.getElementById('searchInput').value.toLowerCase();
-    if (!q) return;
-    if (q.includes('무료') || q.includes('수련')) {
+    var input = document.getElementById('searchInput');
+    if (!input) return;
+
+    var q = input.value.toLowerCase().trim();
+
+    if (!q) {
+      clearSearch();
+      document.getElementById('counselors').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    resetChips('paid');
+    resetChips('free');
+
+    var paidMatches = searchGrid('paid', q);
+    var freeMatches = searchGrid('free', q);
+
+    var shouldShowFreeFirst = q.includes('무료') || q.includes('수련') || q.includes('인턴');
+
+    if (shouldShowFreeFirst && freeMatches > 0) {
+      switchTab('free', document.querySelector('.free-tab'));
+    } else if (paidMatches > 0) {
+      switchTab('paid', document.querySelector('.tab-btn:not(.free-tab)'));
+    } else if (freeMatches > 0) {
       switchTab('free', document.querySelector('.free-tab'));
     } else {
       switchTab('paid', document.querySelector('.tab-btn:not(.free-tab)'));
     }
+
     document.getElementById('counselors').scrollIntoView({ behavior: 'smooth' });
   }
-    }
-  });
 
-  // 엔터 검색
-  document.getElementById('searchInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') doSearch();
+  document.addEventListener('DOMContentLoaded', function() {
+    var input = document.getElementById('searchInput');
+    if (input) {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          doSearch();
+        }
+      });
+    }
+
+    updateEmptyState('paid');
+    updateEmptyState('free');
   });
 </script>
-
 </body>
 </html>
