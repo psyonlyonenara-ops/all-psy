@@ -65,11 +65,12 @@ nav { background: #fff; border-bottom: 0.5px solid #e8ddd6; padding: 14px 32px; 
 .cred-note { font-size: 12px; color: #a08070; text-align: center; margin-top: -8px; margin-bottom: 20px; }
 .cred-item { background: #fdf8f5; border: 0.5px solid #e8ddd6; border-radius: 18px; overflow: hidden; }
 .cred-head { width: 100%; border: none; background: transparent; text-align: left; padding: 20px 22px; display: flex; align-items: center; gap: 16px; cursor: pointer; }
-.cred-icon { width: 56px; height: 56px; border-radius: 50%; background: #f0e0d4; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+.cred-icon { width: 84px; height: 112px; border-radius: 14px; overflow: hidden; background: #fff; border: 0.5px solid #eadfd8; box-shadow: 0 4px 12px rgba(92,61,46,.06); flex-shrink: 0; }
+.cred-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cred-title { font-size: 17px; color: #5c3d2e; line-height: 1.5; }
 .cred-arrow { margin-left: auto; color: #b07d65; font-size: 14px; transition: transform .2s ease; }
 .cred-item.open .cred-arrow { transform: rotate(180deg); }
-.cred-body { display: none; padding: 0 22px 22px 94px; font-size: 13px; color: #8a7060; line-height: 1.9; }
+.cred-body { display: none; padding: 0 22px 22px 122px; font-size: 13px; color: #8a7060; line-height: 1.9; }
 .cred-item.open .cred-body { display: block; }
 .info-note { margin-top: 10px; padding: 14px 16px; border-radius: 14px; background: #f9f0e8; color: #8a7060; font-size: 12px; line-height: 1.8; }
 .nickname-note { margin-top: 10px; font-size: 12px; color: #a08070; line-height: 1.8; text-align: center; }
@@ -173,7 +174,7 @@ nav { background: #fff; border-bottom: 0.5px solid #e8ddd6; padding: 14px 32px; 
     <div class="cred-list">
       <div class="cred-item">
         <button class="cred-head" type="button">
-          <div class="cred-icon">🧶</div>
+          <div class="cred-icon"><img src="images/cert-counseling.png" alt="상담심리사 자격증 이미지"></div>
           <div class="cred-title">한국상담학회 / 한국상담심리학회 상담심리사 1급 · 2급</div>
           <div class="cred-arrow">▼</div>
         </button>
@@ -185,7 +186,7 @@ nav { background: #fff; border-bottom: 0.5px solid #e8ddd6; padding: 14px 32px; 
 
       <div class="cred-item">
         <button class="cred-head" type="button">
-          <div class="cred-icon">👔</div>
+          <div class="cred-icon"><img src="images/cert-mentalhealth.png" alt="정신건강임상심리사 자격증 이미지"></div>
           <div class="cred-title">국립정신건강센터 정신건강임상심리사 1급 · 2급</div>
           <div class="cred-arrow">▼</div>
         </button>
@@ -197,7 +198,7 @@ nav { background: #fff; border-bottom: 0.5px solid #e8ddd6; padding: 14px 32px; 
 
       <div class="cred-item">
         <button class="cred-head" type="button">
-          <div class="cred-icon">🥼</div>
+          <div class="cred-icon"><img src="images/cert-clinical.png" alt="임상심리전문가 자격증 이미지"></div>
           <div class="cred-title">한국임상심리학회 임상심리전문가</div>
           <div class="cred-arrow">▼</div>
         </button>
