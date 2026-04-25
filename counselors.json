@@ -1,0 +1,17 @@
+[
+  {
+    "name": "김OO",
+    "role": "상담심리사",
+    "license": "상담심리사 2급",
+    "specialty": "성인상담, 대인관계, 불안",
+    "intro": "정서적 어려움과 관계 문제를 중심으로 상담합니다.",
+    "image": "images/counselor-01.png",
+    "region": "서울",
+    "types": ["온라인(화상)", "오프라인(대면)"],
+    "price": {
+      "counseling": 40000,
+      "assessment": 230000
+    },
+    "reservationLink": "https://example.com"
+  }
+]
