@@ -228,61 +228,9 @@ nav { background: #fff; border-bottom: 0.5px solid #e8ddd6; padding: 14px 32px; 
       <div class="filter-btn">온라인 상담 가능</div>
       <div class="filter-btn">주말 가능</div>
     </div>
-    <div class="counselor-grid">
-      <div class="c-card">
-        <div class="c-card-top">
-          <div class="avatar">김</div>
-          <div class="c-info">
-            <h3>김○○ 심리사</h3>
-            <div class="cred">임상심리사 1급<br>경력 8년 · 서울 강남</div>
-          </div>
-        </div>
-        <div class="c-desc">인지행동치료(CBT) 기반으로 우울, 불안, 강박을 전문으로 합니다. 대학병원 수련 후 개인 상담 8년 경력.</div>
-        <div class="tag-row">
-          <span class="s-tag">우울</span><span class="s-tag">불안</span><span class="s-tag">강박</span><span class="s-tag">CBT</span>
-        </div>
-        <div class="c-card-footer">
-          <div class="price">60,000원 <span>/ 50분</span></div>
-          <button class="apply-btn">프로필 보기</button>
-        </div>
-      </div>
-      <div class="c-card">
-        <div class="c-card-top">
-          <div class="avatar">이</div>
-          <div class="c-info">
-            <h3>이○○ 심리사</h3>
-            <div class="cred">상담심리사 1급<br>경력 5년 · 온라인</div>
-          </div>
-        </div>
-        <div class="c-desc">관계 갈등, 가족 문제, 대인불안 전문. 비대면 화상 상담으로 전국 어디서든 만나실 수 있어요.</div>
-        <div class="tag-row">
-          <span class="s-tag">관계갈등</span><span class="s-tag">가족</span><span class="s-tag">온라인</span>
-        </div>
-        <div class="c-card-footer">
-          <div class="price">55,000원 <span>/ 50분</span></div>
-          <button class="apply-btn">프로필 보기</button>
-        </div>
-      </div>
-      <div class="c-card">
-        <div class="c-card-top">
-          <div class="avatar">박</div>
-          <div class="c-info">
-            <h3>박○○ 심리사</h3>
-            <div class="cred">정신건강임상심리사 2급<br>경력 6년 · 경기 성남</div>
-          </div>
-        </div>
-        <div class="c-desc">트라우마, 복합 PTSD 전문. EMDR 자격 보유. 심리검사(MMPI, SCL-90) 해석 상담 다수 경험.</div>
-        <div class="tag-row">
-          <span class="s-tag">트라우마</span><span class="s-tag">PTSD</span><span class="s-tag">심리검사</span><span class="s-tag">EMDR</span>
-        </div>
-        <div class="c-card-footer">
-          <div class="price">65,000원 <span>/ 50분</span></div>
-          <button class="apply-btn">프로필 보기</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+   <div class="counselor-grid">
+  <div id="counselor-list"></div>
+</div>
   <div class="section how">
     <div class="section-header">
       <h2>이용 방법</h2>
@@ -361,4 +309,44 @@ document.querySelectorAll('.cred-head').forEach(btn => {
     btn.parentElement.classList.toggle('open');
   });
 });
+  // JSON 데이터 불러오기
+async function loadCounselors() {
+  const response = await fetch('counselors.json');
+  const counselors = await response.json();
+
+  const list = document.getElementById('counselor-list');
+
+  if (!list) return;
+
+  list.innerHTML = counselors.map(c => `
+    <div class="c-card">
+      <div class="c-card-top">
+        <div class="avatar">${c.name[0]}</div>
+        <div class="c-info">
+          <h3>${c.name}</h3>
+          <div class="cred">${c.license}<br>${c.region}</div>
+        </div>
+      </div>
+
+      <div class="c-desc">${c.intro}</div>
+
+      <div class="tag-row">
+        ${c.types.map(t => `<span class="s-tag">${t}</span>`).join('')}
+      </div>
+
+      <div class="c-card-footer">
+        <div class="price">
+          ${c.price.counseling.toLocaleString()}원 <span>/ 1회기</span>
+        </div>
+        <a href="${c.reservationLink}" target="_blank">
+          <button class="apply-btn">예약하기</button>
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+loadCounselors();
 </script>
+</body>
+</html>
